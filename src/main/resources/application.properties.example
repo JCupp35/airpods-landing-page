@@ -1,0 +1,7 @@
+spring.datasource.url=jdbc:postgresql://localhost:5432/airpods_db
+spring.datasource.username=postgres
+spring.datasource.password=626058
+spring.datasource.driver-class-name=org.postgresql.Driver
+mybatis.mapper-locations=classpath:mapper/*.xml
+mybatis.type-aliases-package=com.itc475.finalproject.model
+server.port=8080
