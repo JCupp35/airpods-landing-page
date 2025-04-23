@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+    <link href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">Airpods</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="/inquiry">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <h1>Contact Us</h1>
+        <div th:if="${param.success}" class="alert alert-success">
+            Inquiry submitted successfully!
+        </div>
+        <form th:action="@{/inquiry}" method="post">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <script src="/webjars/jquery/3.7.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('form').submit(function(event) {
+                let name = $('#name').val().trim();
+                let email = $('#email').val().trim();
+                let message = $('#message').val().trim();
+                if (!name || !email || !message) {
+                    alert('Please fill out all fields.');
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
