@@ -1,0 +1,14 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itc475.finalproject.mapper.ReviewMapper">
+    <select id="findByProductId" parameterType="long" resultType="Review">
+        SELECT id, product_id, username, rating, comment, created_at
+        FROM reviews WHERE product_id = #{productId}
+    </select>
+    <insert id="insert" parameterType="Review">
+        INSERT INTO reviews (product_id, username, rating, comment)
+        VALUES (#{productId}, #{username}, #{rating}, #{comment})
+        <selectKey keyProperty="id" resultType="long" order="AFTER">
+            SELECT currval(pg_get_serial_sequence('reviews', 'id'))
+        </selectKey>
+    </insert>
+</mapper>
