@@ -1,14 +1,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itc475.finalproject.mapper.ProductMapper">
     <select id="findAll" resultType="Product">
-        SELECT id, name, description, price, specifications FROM products
+        SELECT id, name, description, price, image_path as imagePath FROM products
     </select>
     <select id="findById" parameterType="long" resultType="Product">
-        SELECT id, name, description, price, specifications FROM products WHERE id = #{id}
+        SELECT id, name, description, price, image_path as imagePath FROM products WHERE id = #{id}
     </select>
     <insert id="insert" parameterType="Product">
-        INSERT INTO products (name, description, price, specifications)
-        VALUES (#{name}, #{description}, #{price}, #{specifications})
+        INSERT INTO products (name, description, price, specifications, image_path)
+        VALUES (#{name}, #{description}, #{price}, #{specifications}, #{imagePath})
         <selectKey keyProperty="id" resultType="long" order="AFTER">
             SELECT currval(pg_get_serial_sequence('products', 'id'))
         </selectKey>

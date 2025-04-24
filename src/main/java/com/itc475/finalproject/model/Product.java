@@ -6,6 +6,7 @@ public class Product {
     private String description;
     private Double price;
     private String specifications;
+    private String imagePath;
 
     // Getters and setters
     public Long getId() { return id; }
@@ -18,4 +19,6 @@ public class Product {
     public void setPrice(Double price) { this.price = price; }
     public String getSpecifications() { return specifications; }
     public void setSpecifications(String specifications) { this.specifications = specifications; }
+    public String getImagePath() { return imagePath; }
+    public void setImagePath(String imagePath) { this.imagePath = imagePath; }
 }

@@ -17,6 +17,7 @@
     </nav>
     <div class="container mt-4">
         <h1 th:text="${product.name}"></h1>
+        <img th:src="${product.imagePath}" class="product-image mb-3" th:alt="${product.name}">
         <p th:text="${product.description}"></p>
         <p th:text="'Price: $' + ${product.price}"></p>
         <p th:text="'Specifications: ' + ${product.specifications}"></p>
